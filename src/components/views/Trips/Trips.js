@@ -7,7 +7,6 @@ import PageTitle from "../../common/PageTitle/PageTitle";
 
 import { Grid, Row, Col } from "react-flexbox-grid";
 import TripListOptions from "../../features/TripListOptions/TripListOptionsContainer";
-import { NavLink } from "react-router-dom";
 
 const Trips = ({ trips }) => (
   <Section>

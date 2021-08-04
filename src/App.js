@@ -39,7 +39,19 @@ class App extends React.Component {
     }
   }
 
+  
+
   render(){
+    const routeProps = {
+      exact: true,
+      atEnter: { offset: 200 },
+      atLeave: { offset: 200 },
+      atActive: { offset: 0 }, 
+      mapStyles: (styles) => ({
+        transform: `translateY(${styles.offset}px)`,
+      })
+    };
+    
     return (
       <BrowserRouter>
         <MainLayout>
@@ -49,13 +61,13 @@ class App extends React.Component {
             atActive={{ opacity: 1 }}
             className={styles.switchWrapper}
           >
-            <AnimatedRoute exact path='/' component={Home} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/trips' component={Trips} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/trip/:id' component={Trip} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/countries' component={Countries} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/regions' component={Regions} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/info' component={Info} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
-            <AnimatedRoute exact path='/country/:id' component={Country} atEnter={{ offset: 200 }} atLeave={{ offset: 200 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({transform: `translateY(${styles.offset}px)`})} />
+            <AnimatedRoute path='/' component={Home} {...routeProps} />
+            <AnimatedRoute path='/trips' component={Trips} {...routeProps} />
+            <AnimatedRoute path='/trip/:id' component={Trip} {...routeProps} />
+            <AnimatedRoute path='/countries' component={Countries} {...routeProps} />
+            <AnimatedRoute path='/regions' component={Regions} {...routeProps} />
+            <AnimatedRoute path='/info' component={Info} {...routeProps} />
+            <AnimatedRoute path='/country/:id' component={Country} {...routeProps} />
             <AnimatedRoute path='*' component={NotFound} />
           </AnimatedSwitch>
         </MainLayout>
