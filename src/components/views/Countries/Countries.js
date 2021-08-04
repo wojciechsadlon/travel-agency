@@ -10,7 +10,7 @@ const Countries = ({ countries }) => (
     <Grid>
       <PageTitle text="All countries" />
       {Object.keys(countries).map((code) => (
-        <Row between="md">
+        <Row between="md" key={code}>
           <CountrySummary key={code} {...countries[code]} />
         </Row>
       ))}
