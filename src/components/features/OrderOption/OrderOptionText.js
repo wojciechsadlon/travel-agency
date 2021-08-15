@@ -6,4 +6,4 @@ const OrderOptionText = ({type, setOptionValue, currentValue, name}) => (
   </div>
 );
 
-export default OrderOptionText
+export default OrderOptionText;
