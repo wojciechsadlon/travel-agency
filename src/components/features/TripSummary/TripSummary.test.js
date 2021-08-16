@@ -41,13 +41,8 @@ describe('Component Trip Summary', () => {
   it('should generate tags order properly', () => {
     const testTags = ['one', 'two', 'three'];
     const component = shallow(<TripSummary tags={testTags} id='abc' />);
-    let spanElem = 0;
 
-    for(let tag of testTags){
-      expect(component.find('.tags>span').at(spanElem).text()).toContain(tag);
-
-      spanElem++
-    }
+    testTags.forEach((tag, index) => expect(component.find('.tags>span').at(index).text()).toContain(tag))
   });
 
   it('shoud not render tags div if this props is not valid', () => {
