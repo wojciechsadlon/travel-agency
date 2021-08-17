@@ -14,7 +14,7 @@ const optionTypes = {
   number: OrderOptionNumber,
   text: OrderOptionText,
   date: OrderOptionDate
-};
+}; 
 
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
   const OptionComponent = optionTypes[type];
