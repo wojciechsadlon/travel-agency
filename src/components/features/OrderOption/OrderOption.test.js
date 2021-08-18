@@ -124,7 +124,6 @@ for(let type in optionTypes){
         it('should run setOrderOption function on click', () => {
           renderedSubcomponent.find('.component>div').last().simulate('click');
           expect(mockSetOrderOption).toBeCalledTimes(1);
-          // dlaczego w teście zwraca wykonanie funkcji dwa razy?
           expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
         });
         break;
