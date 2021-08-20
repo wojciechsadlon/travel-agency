@@ -7,18 +7,13 @@ import {Row, Col} from 'react-flexbox-grid';
 class TripListOptions extends React.Component {
   handleTags(tag, checked){
     if(checked) {
-      console.log('Adding tag', tag);
       this.props.chooseTag(tag)
-      // TODO - use action dispatcher from props
     } else {
-      console.log('Removing tag', tag);
       this.props.removeTag(tag)
-      // TODO - use action dispatcher from props
     }
   }
 
   handleDuration(type, value){
-    console.log('Changing duration', type, value);
     const days = parseInt(value);
 
     if(type === 'from'){
@@ -32,7 +27,6 @@ class TripListOptions extends React.Component {
         to: days
       })
     }
-    // TODO - use action dispatcher from props
   }
 
   handleSearch(phrase){

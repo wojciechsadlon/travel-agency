@@ -36,12 +36,18 @@ const sendOrder = (options, tripCost, tripName, tripId, code) => {
   fetch(url, fetchOptions)
     .then(function(response){
       return response.json();
-    }).then(function(parsedResponse){
-      console.log('parsedResponse', parsedResponse);
-    });
+    }).then(function(response){
+      alert('Order has been sended! Thank You!')
+    })
 };
 
-const OrderForm = ({tripCost, options, setOrderOption, code, tripName, order, tripId}) => (
+const OrderForm = ({tripCost, options, setOrderOption, code, tripName, order, tripId}) => {
+  const handleOrderClick = () => {
+    order.options.name && order.options.contact ?
+    sendOrder(options, tripCost, tripName, tripId, code) : 
+    alert('Please fill your name and contact')
+  }
+  return (
   <Row>
     <Col xs={12}>
       {pricing.map(option => (
@@ -50,12 +56,10 @@ const OrderForm = ({tripCost, options, setOrderOption, code, tripName, order, tr
         </Col>
       ))}
       <OrderSummary cost={tripCost} options={options}/>
-      <Button onClick={() => 
-        order.options.name && order.options.contact ?
-        sendOrder(options, tripCost, tripName, tripId, code) : 
-        alert('Please fill your name and contact')}>Order now!</Button>
+      <Button onClick={() => handleOrderClick()}>Order now!</Button>
     </Col>
   </Row>
-);
+  );
+}
 
 export default OrderForm;
