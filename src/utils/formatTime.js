@@ -10,4 +10,3 @@ export const formatTime = (seconds) => {
     return formatNum(hrs) + ':' + formatNum(min) + ':' + formatNum(sec);
   }
 };
-
